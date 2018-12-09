@@ -17,18 +17,13 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  // signUpUser(userInfo: User): void {
-  //   this.userService.addUser(userInfo)
-  //   .subscribe((user) => {
-  //     this.users.push(user);
-  //     this.router.navigate(['/dashboard'], { relativeTo: this.route });
-  //   });
-  // }
   signUpUser(userInfo: User): void {
     this.userService.addUser(userInfo)
     .subscribe(
-      data => console.log(data),
+      (user) => {
+        console.log(user);
+        this.router.navigate(['/dashboard'], { relativeTo: this.route });
+      },
       error => this.errorMsg = error.statusText
     );
   }

@@ -10,7 +10,7 @@ import { User } from './user';
     providedIn: 'root'
 })
 export class UserService {
-    userUrl = 'https://localhost:3000/users';
+    userUrl = 'https://my-json-server.typicode.com/adyasha1018/resume-builder/users';
     constructor(private http: HttpClient) {}
 
    /** GET USER */
