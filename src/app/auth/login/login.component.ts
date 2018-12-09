@@ -5,8 +5,7 @@ import { UserService } from './../../user.service';
 import { LocalStorageService } from 'ngx-webstorage';
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
   users: User[];
