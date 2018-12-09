@@ -2,12 +2,30 @@
 <div class="row panel panel-heading dashboard-panel">
   <div class="col-md-6">
     <div class="row conatiner">
-      <div class="col-md-6">
+      <div class="col-md-12" *ngFor="let user of currentUser">
         <div class="row">
-          <label>Name: {{currentUser[0].name}}</label>
+          <label>
+            Name: <a (click)="edit(user)" *ngIf="!editedUser">{{user.name}}</a>
+                  <input *ngIf="user===editedUser" [(ngModel)]="user.name" (keyup.enter)="update()">
+          </label>
         </div>
         <div class="row">
-          <label>Phone Number: {{currentUser[0].phoneNo}}</label>
+          <label>
+              Phone Number: <a (click)="edit(user)" *ngIf="!editedUser">{{user.phoneNo}}</a>
+                    <input *ngIf="user===editedUser" [(ngModel)]="user.phoneNo" (keyup.enter)="update()">
+            </label>
+        </div>
+        <div class="row">
+          <label>
+              Email: <a (click)="edit(user)" *ngIf="!editedUser">{{user.email ? user.email : "NA"}}</a>
+                    <input *ngIf="user===editedUser" [(ngModel)]="user.email" (keyup.enter)="update()">
+            </label>
+        </div>
+        <div class="row">
+          <label>
+              Marital Status: <a (click)="edit(user)" *ngIf="!editedUser">{{user.maritalStatus ? user.maritalStatus : "NA"}}</a>
+                    <input *ngIf="user===editedUser" [(ngModel)]="user.maritalStatus" (keyup.enter)="update()">
+            </label>
         </div>
       </div>
     </div>

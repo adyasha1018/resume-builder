@@ -7,8 +7,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  templateUrl: './sign-up.component.html'
 })
 export class SignUpComponent implements OnInit {
   users: User[];

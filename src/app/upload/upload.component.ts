@@ -1,27 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { UploaderService } from './uploader.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
-  providers: [ UploaderService ]
 
 })
 export class UploadComponent {
-  message: string;
-  imgName: string;
-  constructor(private uploaderService: UploaderService) { }
-  onPicked(input: HTMLInputElement) {
-    const file = input.files[0];
-    if (file) {
-      this.uploaderService.upload(file).subscribe(
-        msg => {
-          this.imgName = file.name;
-          input.value = null;
-          this.message = msg;
-        }
-      );
+  url = '';
+
+  constructor() { }
+
+  onSelectFile(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => { // called once readAsDataURL is completed
+        this.url = e.target.result;
+      };
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
     }
   }
-
 }

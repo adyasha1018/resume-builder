@@ -29,6 +29,7 @@ export class UserService {
 
    /** UPDATE USER */
    updateUser (user: User): Observable<User> {
-       return this.http.put<User>(this.userUrl, user);
+       return this.http.put<User>(this.userUrl, user)
+       .pipe(catchError(this.errorHandler));
    }
 }
