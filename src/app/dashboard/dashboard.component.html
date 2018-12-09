@@ -34,3 +34,8 @@
     <app-upload></app-upload>
   </div>
 </div>
+<div class="row panel panel-heading dashboard-panel" *ngIf="currentUser.length">
+  <div style="width:100%; height:100%;">
+    <app-pie-chart></app-pie-chart>
+  </div> 
+</div>
