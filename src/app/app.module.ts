@@ -10,11 +10,15 @@ import { UserService } from './user.service';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NgxWebstorageModule} from 'ngx-webstorage';
+import { UploadComponent } from './upload/upload.component';
+import { UploaderService } from './upload/uploader.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +32,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ),
     FormsModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    NgxWebstorageModule.forRoot()
   ],
-  providers: [UserService],
+  providers: [UserService, UploaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

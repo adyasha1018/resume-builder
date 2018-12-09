@@ -1,0 +1,13 @@
+<form enctype="multipart/form-data" method="post">
+  <div *ngIf="!imgName">
+    <label for="picked">Choose file to upload</label>
+    <div>
+      <input type="file" id="picked" #picked (change)="onPicked(picked)">
+    </div>
+  </div>
+  <div *ngIf="imgName">
+    <span>
+      <b>{{imgName}}</b>
+    </span>  
+  </div>
+</form>

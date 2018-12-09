@@ -1,3 +1,17 @@
-<p>
-  login works!
-</p>
+<form #loginForm="ngForm">
+    <div class="alert alert-danger" *ngIf="errorMsg">
+      {{errorMsg}}
+    </div>
+    <div class="row form-group">
+        <label for="name">Name : </label>
+        <input type="text"  name="name"[(ngModel)]="loginModel.name" placeholder="name"/>
+      </div>
+      <div class="row form-group">
+        <label for="pswd">Password : </label>
+        <input type="password" name="pswd" placeholder="password" [(ngModel)]="loginModel.password" />
+      </div>
+    <div class="row form-group">
+      <button class="btn btn-primary" (click)="loginUser(loginModel)">Login</button>
+      <button class="btn btn-default" (click)="cancel()">Cancel</button>
+    </div>
+  </form>

@@ -3,13 +3,18 @@
 		"id": 11,
 		"name": "Adyasha",
 		"password": "1234",
-		"phoneNo": 123456
+		"phoneNo": 123456,
+		"email": "mishra.adyasha41@gmail.com",
+		"maritalStatus": "married"
 	},
 	{
 		"id": 12,
 		"name": "Devidatta",
 		"password": "12345",
-		"phoneNo": 12345678
+		"phoneNo": 12345678,
+		"email": "devidatta45@gmail.com",
+		"maritalStatus": "married"
+
 	}
 ]
 }
