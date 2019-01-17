@@ -1,7 +1,7 @@
-<h3>Resume Details</h3>
-<div class="row panel panel-heading dashboard-panel">
-  <div class="col-md-6">
-    <div class="row conatiner">
+<h3 class="text-center">Employee Details</h3>
+<div class="row panel panel-heading">
+  <div class="col-md-6 dashboard-panel">
+    <div class="col-md-6 conatiner">
       <div class="col-md-12" *ngFor="let user of currentUser">
         <div class="row">
           <label>
@@ -27,15 +27,30 @@
                     <input *ngIf="user===editedUser" [(ngModel)]="user.maritalStatus" (keyup.enter)="update()">
             </label>
         </div>
+        <div class="row">
+          <label>
+            Total Exp: {{totalExp}}
+          </label>
+       </div>
       </div>
+    </div>
+    <div class="col-md-6">
+      <app-upload></app-upload>
     </div>
   </div>
   <div class="col-md-6">
-    <app-upload></app-upload>
+    <div class="col-md-3 dashboard-panel">
+      <app-employee [user]="currentUser[0]" (msgEvent)="receiveUpdatedUserInfo($event)"></app-employee>
+    </div>
   </div>
 </div>
-<div class="row panel panel-heading dashboard-panel" *ngIf="currentUser.length">
-  <div style="width:100%; height:100%;">
+<div class="row panel panel-heading" *ngIf="currentUser.length">
+  <div class="col-md-6 dashboard-panel"> 
     <app-pie-chart></app-pie-chart>
+  </div> 
+  <div class="col-md-6"> 
+    <div class="col-md-3 dashboard-panel">
+      <app-grid [userList]="currentUser"></app-grid>
+    </div> 
   </div> 
 </div>

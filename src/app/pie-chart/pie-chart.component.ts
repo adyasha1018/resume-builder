@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class PieChartComponent implements OnInit {
 
-  options;
+  options: any;
   data;
   ngOnInit() {
     this.options = {

@@ -16,13 +16,19 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 
 import 'd3';
 import 'nvd3';
+import { EmployeeComponent } from './employee/employee.component';
+import { GridComponent } from './grid/grid.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     UploadComponent,
-    PieChartComponent
+    PieChartComponent,
+    EmployeeComponent,
+    GridComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

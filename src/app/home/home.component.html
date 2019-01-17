@@ -1,0 +1,11 @@
+<div [ngStyle]="{'text-align':'center'}">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    <nav>
+        <a routerLink="/signUp" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact:
+          true}">Sign Up</a>
+        <a routerLink="/logIn" routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact:
+          true}">Log In</a>
+    </nav>
+  </div>

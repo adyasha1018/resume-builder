@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { LocalStorageService } from 'ngx-webstorage';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../user.service';
+import { EmployeeComponent } from '../employee/employee.component';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
   currentUser: User[];
   userList: User[];
   editedUser: User;
+  totalExp: string;
+  @ViewChild(EmployeeComponent) child;
   constructor(private localStorage: LocalStorageService, private route: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit() {
@@ -40,6 +43,15 @@ export class DashboardComponent implements OnInit {
       console.log(this.userList);
       this.editedUser = undefined;
     }
+  }
+
+  receiveUpdatedUserInfo($event) {
+    this.currentUser[0].name = $event;
+  }
+
+
+  ngAfterViewInit() {
+    this.totalExp = this.child.experience;
   }
 
 }
